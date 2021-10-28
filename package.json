@@ -1,7 +1,7 @@
 {
-  "name": "parcelproject",
+  "name": "project",
   "version": "1.0.0",
-  "description": "",
+  "description": "my personal project",
   "scripts": {
     "dev": "parcel ./public/index.html --dist-dir dev",
     "build": "parcel build ./public/index.html --dist-dir build",
