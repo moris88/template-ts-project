@@ -1,3 +1,1 @@
-/*your project in typescript*/
-
-
+/*your code in typescript*/

@@ -1,11 +1,12 @@
 {
   "compilerOptions": {
-    "target": "es6",
+    "target": "es2021",
     "module": "commonjs",
     "strict": true,
     "outDir": "public",
     "esModuleInterop": true,
     "sourceMap": true,
+    "removeComments": true,
   },
   "include": ["src/**/*.ts"],
 }
