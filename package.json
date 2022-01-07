@@ -5,7 +5,8 @@
   "scripts": {
     "dev": "parcel ./public/index.html --dist-dir dev",
     "build": "parcel build ./public/index.html --dist-dir build",
-    "compile": "npx tsc -w"
+    "compile": "tsc",
+    "watch": "tsc -w"
   },
   "browserslist": [
     "defaults"
