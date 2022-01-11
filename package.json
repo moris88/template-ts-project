@@ -1,21 +1,25 @@
 {
-  "name": "project",
-  "version": "1.0.0",
-  "description": "my personal project",
-  "scripts": {
-    "dev": "parcel ./public/index.html --dist-dir dev",
-    "build": "parcel build ./public/index.html --dist-dir build",
-    "compile": "tsc",
-    "watch": "tsc -w"
-  },
-  "browserslist": [
-    "defaults"
-  ],
-  "keywords": [],
-  "author": "moris",
-  "license": "ISC",
-  "devDependencies": {
-    "parcel": "^2.0.0",
-    "typescript": "^4.4.4"
-  }
+    "name": "templateproject",
+    "version": "1.0.0",
+    "scripts": {
+        "dev": "parcel ./public/index.html --dist-dir dev",
+        "build": "parcel build ./public/index.html --dist-dir build",
+        "compile": "npx prettier --write . && tsc",
+        "watch": "tsc -w"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/moris88/templateProject.git"
+    },
+    "author": "moris88",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/moris88/templateProject/issues"
+    },
+    "homepage": "https://github.com/moris88/templateProject#readme",
+    "devDependencies": {
+        "parcel": "^2.1.1",
+        "prettier": "2.5.1",
+        "typescript": "^4.5.4"
+    }
 }
