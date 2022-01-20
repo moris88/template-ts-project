@@ -2,8 +2,6 @@
     "name": "templateproject",
     "version": "1.0.0",
     "scripts": {
-        "dev": "parcel ./public/index.html --dist-dir dev",
-        "build": "parcel build ./public/index.html --dist-dir build",
         "compile": "npx prettier --write . && tsc",
         "watch": "tsc -w"
     },
@@ -18,8 +16,7 @@
     },
     "homepage": "https://github.com/moris88/templateProject#readme",
     "devDependencies": {
-        "parcel": "^2.1.1",
-        "prettier": "2.5.1",
+        "prettier": "^2.5.1",
         "typescript": "^4.5.4"
     }
 }
