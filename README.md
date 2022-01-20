@@ -9,8 +9,4 @@
 ### RUN PROJECT
 
 1. first command to terminal is: **npm run compile**;
-2. second command to terminal is: **npm run dev**;
-
-### BUILDING PROJECT
-
-1. when you finish the development use this command on the terminal: **npm run build**
+2. second command to terminal is: **npm run watch**;
