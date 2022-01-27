@@ -20,6 +20,7 @@
         "@babel/core": "^7.16.12",
         "@babel/preset-env": "^7.16.11",
         "browserify": "^17.0.0",
+        "babelify": "^10.0.0",
         "parcel": "^2.2.1",
         "prettier": "^2.5.1",
         "typescript": "^4.5.4"
