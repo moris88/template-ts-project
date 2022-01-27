@@ -1,4 +1,4 @@
-# START PROJECT Typescript + Parcel
+# START PROJECT Typescript
 
 ### CLONE PROJECT
 
