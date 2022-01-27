@@ -2,8 +2,9 @@
     "name": "templateproject",
     "version": "1.0.0",
     "scripts": {
-        "compile": "npx prettier --write . && tsc",
-        "watch": "tsc -w"
+        "dev": "parcel ./public/index.html --dist-dir dev",
+        "build": "parcel build ./public/index.html --dist-dir build",
+        "compile": "npx prettier --write . && tsc && browserify ./temp/main.js > ./public/bundle.js -t babelify"
     },
     "repository": {
         "type": "git",
@@ -16,6 +17,10 @@
     },
     "homepage": "https://github.com/moris88/templateProject#readme",
     "devDependencies": {
+        "@babel/core": "^7.16.12",
+        "@babel/preset-env": "^7.16.11",
+        "browserify": "^17.0.0",
+        "parcel": "^2.2.1",
         "prettier": "^2.5.1",
         "typescript": "^4.5.4"
     }

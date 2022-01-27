@@ -1,21 +1,27 @@
 {
     "compilerOptions": {
-        "target": "es5",
-        "module": "commonjs",
-        "strict": true,
-        "outDir": "public",
-        "esModuleInterop": true,
-        "sourceMap": true,
-        "removeComments": true,
-        // "allowJs": true,
-        // "skipLibCheck": true,
-        // "allowSyntheticDefaultImports": true,
-        // "forceConsistentCasingInFileNames": true,
-        // "noFallthroughCasesInSwitch": true,
-        // "moduleResolution": "node",
-        // "resolveJsonModule": true,
-        // "isolatedModules": true,
-        // "noEmit": true,
+      "target": "es5",
+      "moduleResolution": "node",
+      // "noEmit": true,
+      "allowSyntheticDefaultImports": true, // Allow default imports from modules with no default export (e.g import React from 'React')
+      // "isolatedModules": true,
+      "module": "commonjs",
+      "allowJs": true, // Process & infer types from .js files.
+      "checkJs": false,
+      "outDir": "temp",
+      "strict": true, // Enable strictest settings like strictNullChecks & noImplicitAny.
+      "esModuleInterop": true, // Import non-ES modules as default imports.
+      "forceConsistentCasingInFileNames": true,
+      "declaration": true,
+      "strictNullChecks": true,
+      "resolveJsonModule": true,
+      "sourceMap": true,
+      "baseUrl": ".",
+      "removeComments": true,
+      "paths": {
+        
+      }
     },
+    "exclude": ["node_modules"],
     "include": ["src/**/*.ts"]
 }
