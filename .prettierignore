@@ -5,6 +5,7 @@ README.md
 /temp
 /dev
 /build
+/public/bundle.js
 tsconfig.json
 .gitignore
 .prettierrc.json
