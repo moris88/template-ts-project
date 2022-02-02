@@ -18,11 +18,11 @@
 
 ## PRODUCTION PROJECT
 
-1. first command to terminal is: **npm run prod**;
+1. first command to terminal is: **npm run production**;
 
 ## INCLUDE IN THIS PROjECT
 
-1. Framework Bootstrap
+1. Bootstrap
 2. JQuery 
 3. Parcel
 4. Typescript
@@ -30,6 +30,7 @@
 6. Watchify
 7. Prettier
 8. Babel
+9. ESlint
 
 
 

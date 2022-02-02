@@ -2,7 +2,7 @@
     "name": "templateproject",
     "version": "1.0.0",
     "scripts": {
-        "prod": "parcel build ./public/index.html --dist-dir build",
+        "production": "parcel build ./public/index.html --dist-dir build",
         "prettier": "prettier --write .",
         "compile": "tsc",
         "build": "prettier --write . && tsc && browserify ./temp/main.js > ./public/bundle.js -t babelify",
@@ -20,11 +20,18 @@
     },
     "homepage": "https://github.com/moris88/templateProject#readme",
     "devDependencies": {
-        "parcel": "^2.2.1",
         "@babel/core": "^7.16.10",
         "@babel/preset-env": "^7.16.10",
+        "@typescript-eslint/eslint-plugin": "^5.10.2",
+        "@typescript-eslint/parser": "^5.10.2",
         "babelify": "^10.0.0",
         "browserify": "^17.0.0",
+        "eslint": "^7.32.0",
+        "eslint-config-standard": "^16.0.3",
+        "eslint-plugin-import": "^2.25.4",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^5.2.0",
+        "parcel": "^2.2.1",
         "prettier": "^2.5.1",
         "typescript": "^4.5.4",
         "watchify": "^4.0.0"
