@@ -9,7 +9,7 @@
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "plugins": ["@typescript-eslint","prefer-arrow"],
+    "plugins": ["@typescript-eslint", "prefer-arrow"],
     "rules": {
         "semi": ["error", "never"],
         "quotes": ["error", "single"]
