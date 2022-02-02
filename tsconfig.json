@@ -19,7 +19,7 @@
       "baseUrl": ".",
       "removeComments": true,
       "paths": {
-        
+        //add type path es. "<nameTypeFile>": ["src/Types/<nameFile>.d.ts"],
       }
     },
     "exclude": ["node_modules"],
