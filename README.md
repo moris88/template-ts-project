@@ -1,4 +1,4 @@
-# START PROJECT Typescript
+# START PROJECT Typescript Vanilla
 
 ## CLONE PROJECT
 
