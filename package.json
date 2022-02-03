@@ -2,7 +2,7 @@
     "name": "templateproject",
     "version": "1.0.0",
     "scripts": {
-        "production": "parcel build ./public/index.html --dist-dir build",
+        "production": "browserify ./temp/main.js > ./public/bundle.js --plugin tinyify",
         "prettier": "prettier --write .",
         "compile": "tsc",
         "build": "prettier --write . && tsc && browserify ./temp/main.js > ./public/bundle.js -t babelify",
@@ -31,8 +31,8 @@
         "eslint-plugin-import": "^2.25.4",
         "eslint-plugin-node": "^11.1.0",
         "eslint-plugin-promise": "^5.2.0",
-        "parcel": "^2.2.1",
         "prettier": "^2.5.1",
+        "tinyify": "^3.0.0",
         "typescript": "^4.5.4",
         "watchify": "^4.0.0"
     }
