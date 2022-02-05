@@ -60,7 +60,7 @@ export namespace Graphic {
         }
     }
 
-    export function creaTable(fields: string[], other?: HTMLObject): Tag {
+    export function creaTabella(fields: string[], other?: HTMLObject): Tag {
         const className = other?.classes ? `class="${other?.classes}"` : ``
         const tableID = 'table_' + generateRandomString(10)
         let result = `<table ${className}><thead><tr>`
@@ -175,10 +175,11 @@ export namespace Graphic {
         const id = 'input_' + generateRandomString(10)
         const className = other?.classes ? `class="${other?.classes}"` : ``
         const valueButton = label ? `class="${label}"` : ``
+        const disabled = other?.disabled ? `disabled` : ``
         return {
             nameTag: 'input',
             elementID: id,
-            elementString: `<button id="${id}" ${className}>${valueButton}</button>`,
+            elementString: `<button id="${id}" ${className} ${disabled}>${valueButton}</button>`,
         }
     }
 
