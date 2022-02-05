@@ -9,8 +9,8 @@ export namespace Graphic {
     }
 
     export interface TableTag {
-        theadID?: string
-        tbodyID?: string
+        fieldsID?: string
+        recordsID?: string
     }
 
     export type TagName =
@@ -69,19 +69,15 @@ export namespace Graphic {
     export function creaTable(fields: string[], other?: HTMLObject): Tag {
         const className = other?.classes ? `class="${other?.classes}"` : ``
         const tableID = 'table_' + generateRandomString(10)
-        const fieldsID = 'thead_' + generateRandomString(10)
-        const recordsID = 'tbody_' + generateRandomString(10)
-        let result = `<table id="${tableID}" ${className}><thead id="${fieldsID}"><tr>`
+        let result = `<table ${className}><thead><tr>`
         for (const field of fields) {
             result += `<th>${field}</th>`
         }
-        result += `</tr></thead><tbody id="${recordsID}"></tbody></table>`
+        result += `</tr></thead><tbody id="${tableID}"></tbody></table>`
         return {
             nameTag: 'table',
             elementID: tableID,
-            elementString: result,
-            theadID: fieldsID,
-            tbodyID: recordsID,
+            elementString: result
         }
     }
 
