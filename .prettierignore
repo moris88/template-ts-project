@@ -6,6 +6,8 @@ README.md
 /dev
 /build
 /public/bundle.js
+/.vscode
+/src/lib/Graphic
 tsconfig.json
 .eslintrc.json
 .gitignore
