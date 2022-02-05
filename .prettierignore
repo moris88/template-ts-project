@@ -8,6 +8,7 @@ README.md
 /public/bundle.js
 /.vscode
 /src/lib/Graphic
+/src/lib/Classes
 tsconfig.json
 .eslintrc.json
 .gitignore
