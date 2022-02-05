@@ -198,17 +198,16 @@ export namespace Graphic {
         | 'change'
         | 'blur'
         | 'focus'
-        | 'close'
         | 'dblclick'
         | 'keypress'
-    export function addEvent(
-        parentID: string,
-        typeEvent: TypeEvent,
-        callback: (this: HTMLElement, ev: Event | MouseEvent) => any
-    ) {
-        const element = window.document.getElementById(parentID)
-        if (element !== null) element.addEventListener(typeEvent, callback)
-    }
+        export function addEvent<K extends HTMLInputElement | HTMLSelectElement | HTMLButtonElement | HTMLAnchorElement>(
+            parentID: string,
+            typeEvent: TypeEvent,
+            callback: (this: K, event: Event) => any
+        ) {
+            const element = window.document.getElementById(parentID) as K
+            if (element !== null) element.addEventListener(typeEvent, callback)
+        }
 }
 
 const generateRandomString = (num: number) => {
