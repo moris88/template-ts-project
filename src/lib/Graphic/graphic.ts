@@ -8,11 +8,6 @@ export namespace Graphic {
         elementString: string
     }
 
-    export interface TableTag {
-        fieldsID?: string
-        recordsID?: string
-    }
-
     export type TagName =
         | 'p'
         | 'span'
@@ -25,8 +20,7 @@ export namespace Graphic {
         | 'input'
     export type Tag = {
         nameTag: TagName
-    } & ElementTag &
-        TableTag
+    } & ElementTag
 
     export function inserisciTagHTML(parent: HTMLElement | null, child: Tag) {
         if (parent !== null) parent.innerHTML += `${child.elementString}`
