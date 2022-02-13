@@ -6,10 +6,8 @@
 2. second command to terminal is: **cd templateProject**
 3. third command to terminal is: **npm install**;
 
-## RUN PROJECT
-
 ## DEV COMMAND
-1. command to terminal 2 is: **npm run dev**;
+1. command to terminal is: **npm run dev**;
 
 ## PRODUCTION PROJECT
 1. command to terminal is: **npm run build**;
