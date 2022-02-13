@@ -12,10 +12,12 @@ export namespace Classes {
 
     export function remove(name: string) {
         array = array.filter((elem) => elem !== name )
+        return print()
     }
 
     export function removeAll() {
         array = []
+        return print()
     }
 
     export function print() {
@@ -25,6 +27,6 @@ export namespace Classes {
         else {
             for (const elem of array) result += `${elem} `
         }
-        return result
+        return result.trim()
     }
 }
