@@ -15,7 +15,7 @@ describe('test classes', () => {
   })
   test('test function get classes', () => {
     const output = 'justify-content-center'
-    expect(Classes.get()).toBe(output)
+    expect(Classes.get(output)).toBe(output)
   })
   test('test function removeAll classes', () => {
     const output = ''
