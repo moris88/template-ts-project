@@ -1,5 +1,5 @@
 /* eslint-disable no-undef */
-import { Classes } from '../src/lib/classes'
+import { Classes } from './classes'
 
 describe('test classes', () => {
   test('test function add classes', () => {

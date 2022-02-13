@@ -129,7 +129,7 @@ export namespace Graphic {
       }
     }
 
-    export function inserisciOptione (
+    export function inserisciOpzione (
       selectID: string,
       label: string,
       value: any,
