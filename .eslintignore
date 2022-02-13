@@ -9,4 +9,3 @@ tsconfig.json
 .eslintrc.json
 .gitignore
 .prettierrc.json
-babel.config.json
