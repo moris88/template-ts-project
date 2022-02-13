@@ -6,6 +6,16 @@ export namespace Classes {
       return get()
     }
 
+    export function remove (name: string) {
+      array = array.filter((elem) => elem !== name)
+      return get()
+    }
+
+    export function removeAll () {
+      array = []
+      return get()
+    }
+
     export function get () {
       let result = ''
       if (array.length === 0) result += ''
@@ -13,6 +23,6 @@ export namespace Classes {
       else {
         for (const elem of array) result += `${elem} `
       }
-      return result
+      return result.trim()
     }
 }
