@@ -2,13 +2,9 @@
 package.json
 package-lock.json
 README.md
-/temp
-/dev
-/build
 /public/bundle.js
 /.vscode
-/src/lib/Graphic
-/src/lib/Classes
+/src/lib
 tsconfig.json
 .eslintrc.json
 .gitignore

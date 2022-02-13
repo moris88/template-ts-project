@@ -1,6 +1,3 @@
 /node_modules
 /.vscode
-/temp
-/dev
-/build
 /public/bundle.js

@@ -8,29 +8,20 @@
 
 ## RUN PROJECT
 
-### MANUAL COMMAND
-1. first command to terminal is: **npm run compile**;
-2. second command to terminal is: **npm run build**;
-
-### AUTOMATIC COMMAND
-1. first command to terminal 1 is: **npm run watch**;
-2. second command to terminal 2 is: **npm run dev**;
+## DEV COMMAND
+1. command to terminal 2 is: **npm run dev**;
 
 ## PRODUCTION PROJECT
-
-1. first command to terminal is: **npm run production**;
+1. command to terminal is: **npm run build**;
 
 ## INCLUDE IN THIS PROjECT
 
 1. Bootstrap
 2. JQuery 
-3. Parcel
-4. Typescript
-5. Browserify
-6. Watchify
-7. Prettier
-8. Babel
-9. ESlint
+3. Typescript
+4. EsBuild
+5. Prettier
+6. ESlint
 
 ***BY MORIS88***
 

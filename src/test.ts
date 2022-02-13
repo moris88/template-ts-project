@@ -1,6 +1,6 @@
 /* your code in typescript */
-import { Graphic } from './lib/Graphic/graphic'
-import { Classes } from './lib/Classes/classes'
+import { Graphic } from './lib/graphic'
+import { Classes } from './lib/classes'
 
 export namespace TestGraphic {
 
