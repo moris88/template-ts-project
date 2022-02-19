@@ -16,7 +16,7 @@ create your repository and use template **template-ts-project**
 ## PRODUCTION PROJECT
 - on terminal: **npm run build** or **yarn dev**;
 
-## INCLUDE IN THIS PROjECT
+## INCLUDE IN THIS PROJECT
 
 1. Bootstrap
 2. JQuery 
