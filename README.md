@@ -11,10 +11,10 @@ create your repository and use template **template-ts-project**
 3. third command to terminal is: **npm install** or **yarn**;
 
 ## DEV COMMAND
--on terminal: **npm run dev** or **yarn dev**;
+- on terminal: **npm run dev** or **yarn dev**;
 
 ## PRODUCTION PROJECT
--on terminal: **npm run build** or **yarn dev**;
+- on terminal: **npm run build** or **yarn dev**;
 
 ## INCLUDE IN THIS PROjECT
 
