@@ -6,8 +6,8 @@ create your repository and use template **template-ts-project**
 
 ## CLONE PROJECT
 
-1. first command to terminal is: **git clone https://github.com/"your-name-github"/"name-repository"**;
-2. second command to terminal is: **cd "name-repository"**
+1. first command to terminal is: **git clone https://github.com/[your-name-github]/[name-repository]**;
+2. second command to terminal is: **cd [name-repository]**
 3. third command to terminal is: **npm install** or **yarn**;
 
 ## DEV COMMAND
