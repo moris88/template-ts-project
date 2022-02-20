@@ -16,7 +16,7 @@ create your repository and use template **template-ts-project**
 
 ## PRODUCTION PROJECT
 
--   on terminal: **npm run build** or **yarn dev**;
+-   on terminal: **npm run build** or **yarn build**;
 
 ## INCLUDE IN THIS PROJECT
 
