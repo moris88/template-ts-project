@@ -5,7 +5,8 @@
         "build": "esbuild src/main.ts --bundle --minify --outfile=public/bundle.js",
         "dev": "esbuild src/main.ts --bundle --watch --outfile=public/bundle.js",
         "eslint": "eslint src/**/*.ts --fix",
-        "test": "jest"
+        "test": "jest",
+        "prettier": "npx prettier --write ."
     },
     "repository": {
         "type": "git",
@@ -28,6 +29,7 @@
         "eslint-plugin-node": "^11.1.0",
         "eslint-plugin-promise": "^5.2.0",
         "jest": "^27.5.1",
+        "prettier": "^2.5.1",
         "ts-jest": "^27.1.3",
         "ts-node": "^10.5.0",
         "typescript": "^4.5.4"

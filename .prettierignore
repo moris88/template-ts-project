@@ -1,0 +1,14 @@
+/node_modules
+package.json
+package-lock.json
+/src/lib
+/public
+.dockerignore
+Dockerfile
+.eslintignore
+.eslintrc.json
+jest.config.js
+tsconfig.json
+README.md
+.prettierrc.json
+/.vscode
