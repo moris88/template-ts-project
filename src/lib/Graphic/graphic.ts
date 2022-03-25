@@ -24,20 +24,58 @@ export namespace Graphic {
     | 'option'
     | 'tr'
     | 'input'
-    export type Tag = {
+    export type TagHTML = {
         nameTag: TagName
+        parentTag?: TagHTML
     } & ElementTag
 
-    export function inserisciTagHTML(parent: HTMLElement | null, child: Tag) {
+    export function rimuoviTagHTML(tag: TagHTML) {
+        const element = window.document.getElementById(tag.elementID)
+        element?.remove()
+    }
+
+    export function rimuoviTagsHTML(tags: TagHTML[]) {
+        if (tags.length > 0) {
+            tags.forEach(tag => {
+                const element = window.document.getElementById(tag.elementID)
+                element?.remove()
+            })  
+        }
+    }
+
+    export function getElementHTML(tag: TagHTML): HTMLElement | null {
+        return window.document.getElementById(tag.elementID)
+    }
+
+    export function setTagParent(parentTag: TagHTML, childTag: TagHTML) {
+        parentTag.parentTag = childTag
+    }
+
+    export function getTagParent(tag: TagHTML): TagHTML | null {
+        if(tag.parentTag) {
+            return tag.parentTag
+        }
+        return null
+    }
+
+    export function inserisciTagsHTML(parent: HTMLElement | null, childs: TagHTML[]) {
+        if (parent !== null) {
+            childs.forEach(child => {
+                parent.innerHTML += `${child.elementString}`
+            })  
+        }
+    }
+
+    export function inserisciTagHTML(parent: HTMLElement | null, child: TagHTML) {
         if (parent !== null) parent.innerHTML += `${child.elementString}`
     }
 
-    export function recuperaTagHTML(id: string) {
+    export function getRootHTML(id: string) {
         return window.document.getElementById(id)
     }
 
     export type Grandezza = '1' | '2' | '3' | '4' | '5' | '6' 
-    export function creaTitolo(text: string, grandezza: Grandezza, other?: HTMLObject): Tag {
+    export function creaTitolo(text: string, grandezza: Grandezza, other?: HTMLObject): TagHTML {
         const id = `h${grandezza}_` + generateRandomString(10)
         const className = other?.classes ? `class="${other?.classes}"` : ''
         return {
@@ -47,7 +85,7 @@ export namespace Graphic {
         }
     }
 
-    export function creaParagrafo(text: string, other?: HTMLObject): Tag {
+    export function creaParagrafo(text: string, other?: HTMLObject): TagHTML {
         const id = 'p_' + generateRandomString(10)
         const className = other?.classes ? `class="${other?.classes}"` : ''
         return {
@@ -57,7 +95,7 @@ export namespace Graphic {
         }
     }
 
-    export function creaSpan(text: string, other?: HTMLObject): Tag {
+    export function creaSpan(text: string, other?: HTMLObject): TagHTML {
         const id = 'span_' + generateRandomString(10)
         const className = other?.classes ? `class="${other?.classes}"` : ''
         return {
@@ -67,7 +105,7 @@ export namespace Graphic {
         }
     }
 
-    export function creaDiv(other?: HTMLObject): Tag {
+    export function creaDiv(other?: HTMLObject): TagHTML {
         const id = 'div_' + generateRandomString(10)
         const className = other?.classes ? `class="${other?.classes}"` : ''
         return {
@@ -77,7 +115,7 @@ export namespace Graphic {
         }
     }
 
-    export function creaTabella(fields: string[], other?: HTMLObject): Tag {
+    export function creaTabella(fields: string[], other?: HTMLObject): TagHTML {
         const className = other?.classes ? `class="${other?.classes}"` : ''
         const tableID = 'table_' + generateRandomString(10)
         let result = `<table ${className}><thead><tr>`
@@ -96,7 +134,7 @@ export namespace Graphic {
         parentID: string,
         records: string[],
         other?: HTMLObject
-    ): Tag {
+    ): TagHTML {
         const className = other?.classes ? `class="${other?.classes}"` : ''
         const rowID = 'tr_' + generateRandomString(10)
         let result = `<tr id="${rowID}" ${className}>`
@@ -113,7 +151,7 @@ export namespace Graphic {
         }
     }
 
-    export function pulisciRecords(table: Tag) {
+    export function pulisciRecords(table: TagHTML) {
         const tableRecord = window.document.getElementById(table.elementID)
         if (tableRecord !== null) tableRecord.innerHTML = ''
     }
@@ -123,7 +161,7 @@ export namespace Graphic {
         href?: string,
         target?: string,
         other?: HTMLObject
-    ): Tag {
+    ): TagHTML {
         const id = 'a' + generateRandomString(10)
         const className = other?.classes ? `class="${other?.classes}"` : ''
         const linkHref = href ? `href="${href}"` : ''
@@ -135,7 +173,7 @@ export namespace Graphic {
         }
     }
 
-    export function creaSelezione(other?: HTMLObject): Tag {
+    export function creaSelezione(other?: HTMLObject): TagHTML {
         const className = other?.classes ? `class="${other?.classes}"` : ''
         const selectID = 'select_' + generateRandomString(10)
         const result = `<select id="${selectID}" ${className}></select>`
@@ -152,7 +190,7 @@ export namespace Graphic {
         value: any,
         selected: boolean,
         other?: HTMLObject
-    ): Tag {
+    ): TagHTML {
         const className = other?.classes ? `class="${other?.classes}"` : ''
         const optionID = 'option_' + generateRandomString(10)
         const result = selected
@@ -172,7 +210,7 @@ export namespace Graphic {
         name: string,
         label: string,
         other?: HTMLObject
-    ): Tag {
+    ): TagHTML {
         const id = 'input_' + generateRandomString(10)
         const className = other?.classes ? `class="${other?.classes}"` : ''
         const typeInput = type ? `type="${type}"` : ''
@@ -185,7 +223,7 @@ export namespace Graphic {
         }
     }
 
-    export function creaButton(label: string, other?: HTMLObject): Tag {
+    export function creaButton(label: string, other?: HTMLObject): TagHTML {
         const id = 'input_' + generateRandomString(10)
         const className = other?.classes ? `class="${other?.classes}"` : ''
         const valueButton = label ? `class="${label}"` : ''
