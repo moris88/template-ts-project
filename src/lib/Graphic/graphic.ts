@@ -9,15 +9,21 @@ export namespace Graphic {
     }
 
     export type TagName =
-        | 'p'
-        | 'span'
-        | 'div'
-        | 'table'
-        | 'a'
-        | 'select'
-        | 'option'
-        | 'tr'
-        | 'input'
+    | 'h1'
+    | 'h2'
+    | 'h3'
+    | 'h4'
+    | 'h5'
+    | 'h6'
+    | 'p'
+    | 'span'
+    | 'div'
+    | 'table'
+    | 'a'
+    | 'select'
+    | 'option'
+    | 'tr'
+    | 'input'
     export type Tag = {
         nameTag: TagName
     } & ElementTag
@@ -28,6 +34,17 @@ export namespace Graphic {
 
     export function recuperaTagHTML(id: string) {
         return window.document.getElementById(id)
+    }
+
+    export type Grandezza = '1' | '2' | '3' | '4' | '5' | '6' 
+    export function creaTitolo(text: string, grandezza: Grandezza, other?: HTMLObject): Tag {
+        const id = `h${grandezza}_` + generateRandomString(10)
+        const className = other?.classes ? `class="${other?.classes}"` : ''
+        return {
+            nameTag: `h${grandezza}`,
+            elementID: id,
+            elementString: `<h${grandezza} id="${id}" ${className}>${text}</h${grandezza}>`,
+        }
     }
 
     export function creaParagrafo(text: string, other?: HTMLObject): Tag {
