@@ -4,13 +4,13 @@ import { Classes } from '../Classes/classes'
 
 export namespace TestGraphic {
     export function main() {
-        const root = Graphic.recuperaTagHTML('root')
+        const root = Graphic.getRootHTML('root')
         const divTag = Graphic.creaDiv()
         const pTag = Graphic.creaParagrafo('ciao Mondo', {
             classes: Classes.add(['text-center']),
         })
         Graphic.inserisciTagHTML(root, divTag)
-        const div = Graphic.recuperaTagHTML(divTag.elementID)
+        const div = Graphic.getElementHTML(divTag)
         Graphic.inserisciTagHTML(div, pTag)
 
         const tableTag = Graphic.creaTabella(['id', 'nome', 'cognome'], {
