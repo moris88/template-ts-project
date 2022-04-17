@@ -74,14 +74,14 @@ export namespace Graphic {
         return window.document.getElementById(id)
     }
 
-    export type Grandezza = '1' | '2' | '3' | '4' | '5' | '6' 
-    export function creaTitolo(text: string, grandezza: Grandezza, other?: HTMLObject): TagHTML {
-        const id = `h${grandezza}_` + generateRandomString(10)
+    export type Size = '1' | '2' | '3' | '4' | '5' | '6' 
+    export function creaTitolo(text: string, size: Size, other?: HTMLObject): TagHTML {
+        const id = `h${size}_` + generateRandomString(10)
         const className = other?.classes ? `class="${other?.classes}"` : ''
         return {
-            nameTag: `h${grandezza}`,
+            nameTag: `h${size}`,
             elementID: id,
-            elementString: `<h${grandezza} id="${id}" ${className}>${text}</h${grandezza}>`,
+            elementString: `<h${size} id="${id}" ${className}>${text}</h${size}>`,
         }
     }
 
