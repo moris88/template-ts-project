@@ -1,31 +1,32 @@
 export namespace Classes {
-    let array: string[] = []
 
-    export function add(classes: string[]) {
+    export function set(classes: string[]) {
+        let array: string[] = []
         array = [...classes]
-        return print()
+        return print(array)
     }
 
-    export function get(name: string) {
-        return array.find((elem) => elem === name)
+    export function get(classes: string) {
+        let array: string[] = classes.split(' ')
+        return array
     }
 
-    export function remove(name: string) {
-        array = array.filter((elem) => elem !== name)
-        return print()
+    export function remove(classes: string[], nameClass: string) {
+        classes = classes.filter((elem) => elem !== nameClass)
+        return print(classes)
     }
 
-    export function removeAll() {
-        array = []
-        return print()
+    export function removeAll(classes: string[]) {
+        classes = []
+        return print(classes)
     }
 
-    export function print() {
+    export function print(array: string[]) {
         let result = ''
         if (array.length === 0) result += ``
-        if (array.length === 1) result += `${array[0]}`
+        else if (array.length === 1) result += `${array[0].trim()}`
         else {
-            for (const elem of array) result += `${elem} `
+            for (const elem of array) result += `${elem.trim()} `
         }
         return result.trim()
     }

@@ -1,14 +1,19 @@
 export namespace Graphic {
+
+    let rootHTMLElement: HTMLElement | null = null
+
     export interface HTMLObject {
         classes?: string
         disabled?: boolean
+        //TODO inserire altri attributi
     }
     export interface ElementTag {
-        elementID: string
-        elementString: string
+        id: string
+        html: string
     }
 
-    export type TagName =
+    //TODO aggiungere altri tag
+    export type tagType =
     | 'h1'
     | 'h2'
     | 'h3'
@@ -25,97 +30,127 @@ export namespace Graphic {
     | 'tr'
     | 'input'
     export type TagHTML = {
-        nameTag: TagName
-        parentTag?: TagHTML
+        type: tagType
+        parent?: TagHTML
     } & ElementTag
 
-    export function rimuoviTagHTML(tag: TagHTML) {
-        const element = window.document.getElementById(tag.elementID)
+    export function removeTag(tag: TagHTML) {
+        const element = window.document.getElementById(tag.id)
         element?.remove()
     }
 
-    export function rimuoviTagsHTML(tags: TagHTML[]) {
+    export function removeTags(tags: TagHTML[]) {
         if (tags.length > 0) {
             tags.forEach(tag => {
-                const element = window.document.getElementById(tag.elementID)
+                const element = window.document.getElementById(tag.id)
                 element?.remove()
             })  
         }
     }
 
-    export function getElementHTML(tag: TagHTML): HTMLElement | null {
-        return window.document.getElementById(tag.elementID)
-    }
-
-    export function setTagParent(parentTag: TagHTML, childTag: TagHTML) {
-        parentTag.parentTag = childTag
-    }
-
-    export function getTagParent(tag: TagHTML): TagHTML | null {
-        if(tag.parentTag) {
-            return tag.parentTag
+    export function createHTMLObject(
+        classes: string,
+        disabled: boolean = false
+    ): HTMLObject{
+        return {
+            classes: classes ? classes : '',
+            disabled: disabled
         }
-        return null
     }
 
-    export function inserisciTagsHTML(parent: HTMLElement | null, childs: TagHTML[]) {
+    export function addTags(parent: HTMLElement | null, childs: TagHTML[]) {
         if (parent !== null) {
             childs.forEach(child => {
-                parent.innerHTML += `${child.elementString}`
+                parent.innerHTML += `${child.html}`
             })  
         }
+        else throw new Error('Not found parent HTMLElement')
     }
 
-    export function inserisciTagHTML(parent: HTMLElement | null, child: TagHTML) {
-        if (parent !== null) parent.innerHTML += `${child.elementString}`
+    export function addTagToParent(parent: TagHTML, child: TagHTML) {
+        let temp = window.document.getElementById(parent.id)
+        if (temp !== null) temp.innerHTML += `${child.html}`
+        else throw new Error('No tag parent')
     }
 
-    export function getRootHTML(id: string) {
-        return window.document.getElementById(id)
+    export function addTagsToParent(parent: TagHTML, childs: TagHTML[]) {
+        let temp = window.document.getElementById(parent.id)
+        if (temp !== null) {
+            childs.forEach(child => {
+                if (temp !== null) temp.innerHTML += `${child.html}`
+            })
+        } 
+        else throw new Error('No tag parent')
+    }
+
+    export function addTagToRoot(child: TagHTML){
+        if (rootHTMLElement !== null) rootHTMLElement.innerHTML += `${child.html}`
+        else throw new Error('No tag root')
+    }
+
+    export function addTagsToRoot(childs: TagHTML[]){
+        if (rootHTMLElement !== null) {
+            childs.forEach(child => {
+                if (rootHTMLElement !== null) 
+                    rootHTMLElement.innerHTML += `${child.html}`
+            })
+        } 
+        else throw new Error('No tag root')
+    }
+
+    export function setRoot(id: string) {
+        let root = window.document.getElementById(id) 
+        if(root !== null) rootHTMLElement = root
+        else throw new Error('Not found root HTMLElement')
+    }
+
+    export function getRoot() {
+        if (rootHTMLElement !== null) return rootHTMLElement
+        else throw new Error('No tag root')
     }
 
     export type Size = '1' | '2' | '3' | '4' | '5' | '6' 
-    export function creaTitolo(text: string, size: Size, other?: HTMLObject): TagHTML {
+    export function createTitle(text: string, size: Size, other?: HTMLObject): TagHTML {
         const id = `h${size}_` + generateRandomString(10)
         const className = other?.classes ? `class="${other?.classes}"` : ''
         return {
-            nameTag: `h${size}`,
-            elementID: id,
-            elementString: `<h${size} id="${id}" ${className}>${text}</h${size}>`,
+            type: `h${size}`,
+            id: id,
+            html: `<h${size} id="${id}" ${className}>${text}</h${size}>`,
         }
     }
 
-    export function creaParagrafo(text: string, other?: HTMLObject): TagHTML {
+    export function createParagraph(text: string, other?: HTMLObject): TagHTML {
         const id = 'p_' + generateRandomString(10)
         const className = other?.classes ? `class="${other?.classes}"` : ''
         return {
-            nameTag: 'p',
-            elementID: id,
-            elementString: `<p id="${id}" ${className}>${text}</p>`,
+            type: 'p',
+            id: id,
+            html: `<p id="${id}" ${className}>${text}</p>`,
         }
     }
 
-    export function creaSpan(text: string, other?: HTMLObject): TagHTML {
+    export function createSpan(text: string, other?: HTMLObject): TagHTML {
         const id = 'span_' + generateRandomString(10)
         const className = other?.classes ? `class="${other?.classes}"` : ''
         return {
-            nameTag: 'span',
-            elementID: id,
-            elementString: `<span id="${id}" ${className}>${text}</span>`,
+            type: 'span',
+            id: id,
+            html: `<span id="${id}" ${className}>${text}</span>`,
         }
     }
 
-    export function creaDiv(other?: HTMLObject): TagHTML {
+    export function createDiv(other?: HTMLObject): TagHTML {
         const id = 'div_' + generateRandomString(10)
         const className = other?.classes ? `class="${other?.classes}"` : ''
         return {
-            nameTag: 'div',
-            elementID: id,
-            elementString: `<div id="${id}" ${className}></div>`,
+            type: 'div',
+            id: id,
+            html: `<div id="${id}" ${className}></div>`,
         }
     }
 
-    export function creaTabella(fields: string[], other?: HTMLObject): TagHTML {
+    export function createTable(fields: string[], other?: HTMLObject): TagHTML {
         const className = other?.classes ? `class="${other?.classes}"` : ''
         const tableID = 'table_' + generateRandomString(10)
         let result = `<table ${className}><thead><tr>`
@@ -124,13 +159,13 @@ export namespace Graphic {
         }
         result += `</tr></thead><tbody id="${tableID}"></tbody></table>`
         return {
-            nameTag: 'table',
-            elementID: tableID,
-            elementString: result,
+            type: 'table',
+            id: tableID,
+            html: result,
         }
     }
 
-    export function inserisciRecord(
+    export function addRecordTable(
         parentID: string,
         records: string[],
         other?: HTMLObject
@@ -145,18 +180,18 @@ export namespace Graphic {
         const riga = window.document.getElementById(parentID)
         if (riga !== null) riga.innerHTML += result
         return {
-            nameTag: 'tr',
-            elementID: rowID,
-            elementString: result,
+            type: 'tr',
+            id: rowID,
+            html: result,
         }
     }
 
-    export function pulisciRecords(table: TagHTML) {
-        const tableRecord = window.document.getElementById(table.elementID)
+    export function removeAllRecordsTable(table: TagHTML) {
+        const tableRecord = window.document.getElementById(table.id)
         if (tableRecord !== null) tableRecord.innerHTML = ''
     }
 
-    export function creaLink(
+    export function createLink(
         text: string,
         href?: string,
         target?: string,
@@ -167,24 +202,24 @@ export namespace Graphic {
         const linkHref = href ? `href="${href}"` : ''
         const linkTarget = target ? `target="${target}"` : ''
         return {
-            nameTag: 'a',
-            elementID: id,
-            elementString: `<a id="${id}" ${className} ${linkHref} ${linkTarget}>${text}</a>`,
+            type: 'a',
+            id: id,
+            html: `<a id="${id}" ${className} ${linkHref} ${linkTarget}>${text}</a>`,
         }
     }
 
-    export function creaSelezione(other?: HTMLObject): TagHTML {
+    export function createSelect(other?: HTMLObject): TagHTML {
         const className = other?.classes ? `class="${other?.classes}"` : ''
         const selectID = 'select_' + generateRandomString(10)
         const result = `<select id="${selectID}" ${className}></select>`
         return {
-            nameTag: 'select',
-            elementID: selectID,
-            elementString: result,
+            type: 'select',
+            id: selectID,
+            html: result,
         }
     }
 
-    export function inserisciOpzione(
+    export function addOption(
         selectID: string,
         label: string,
         value: any,
@@ -199,13 +234,13 @@ export namespace Graphic {
         const select = window.document.getElementById(selectID)
         if (select !== null) select.innerHTML += result
         return {
-            nameTag: 'option',
-            elementID: optionID,
-            elementString: result,
+            type: 'option',
+            id: optionID,
+            html: result,
         }
     }
 
-    export function creaInput(
+    export function createInput(
         type: string,
         name: string,
         label: string,
@@ -217,21 +252,21 @@ export namespace Graphic {
         const nameInput = name ? `name="${name}"` : ''
         const valueInput = label ? `value="${label}"` : ''
         return {
-            nameTag: 'input',
-            elementID: id,
-            elementString: `<input id="${id}" ${className} ${typeInput} ${nameInput} ${valueInput}></input>`,
+            type: 'input',
+            id: id,
+            html: `<input id="${id}" ${className} ${typeInput} ${nameInput} ${valueInput}></input>`,
         }
     }
 
-    export function creaButton(label: string, other?: HTMLObject): TagHTML {
+    export function createButton(label: string, other?: HTMLObject): TagHTML {
         const id = 'input_' + generateRandomString(10)
         const className = other?.classes ? `class="${other?.classes}"` : ''
         const valueButton = label ? `class="${label}"` : ''
         const disabled = other?.disabled ? 'disabled' : ''
         return {
-            nameTag: 'input',
-            elementID: id,
-            elementString: `<button id="${id}" ${className} ${disabled}>${valueButton}</button>`,
+            type: 'input',
+            id: id,
+            html: `<button id="${id}" ${className} ${disabled}>${valueButton}</button>`,
         }
     }
 
