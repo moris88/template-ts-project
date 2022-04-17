@@ -14,6 +14,10 @@ create your repository and use template **template-ts-project**
 
 -   on terminal: **npm run dev** or **yarn dev**;
 
+if you use SCSS style:
+
+-   on terminal: **npm run dev-css** or **yarn dev-css**;
+
 ## PRODUCTION PROJECT
 
 -   on terminal: **npm run build** or **yarn build**;
@@ -26,5 +30,6 @@ create your repository and use template **template-ts-project**
 4. EsBuild
 5. Prettier
 6. ESlint
+7. PostCSS
 
 **_BY MORIS88_**
