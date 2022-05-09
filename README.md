@@ -1,9 +1,9 @@
 # START PROJECT Typescript Vanilla
 
-[![Build Status][travis-svg]][travis-org]
-[![javascript style guide][standard-mia-svg]][standard-mia]  
-[![Coverage Status][coverall-svg]][coverall-io]
-[![NPM version][npmjs-svg]][npmjs-com]
+[travis-svg][travis-org]
+[standard-mia-svg][standard-mia]  
+[coverall-svg][coverall-io]
+[npmjs-svg][npmjs-com]
 
 ## CREATE REPOSITORY
 
