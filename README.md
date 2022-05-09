@@ -1,10 +1,5 @@
 # START PROJECT Typescript Vanilla
 
-[travis-svg][travis-org]
-[standard-mia-svg][standard-mia]  
-[coverall-svg][coverall-io]
-[npmjs-svg][npmjs-com]
-
 ## CREATE REPOSITORY
 
 create your repository and use template **template-ts-project**
