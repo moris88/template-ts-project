@@ -1,7 +1,7 @@
 /* your code in typescript */
 
 import { Classes } from "./lib/Classes/classes";
-import { Graphic } from "./lib/Graphic/graphic";
+import Graphic from "./lib/Graphic/graphic";
 
 Graphic.setRoot('root')
 
@@ -12,7 +12,7 @@ Graphic.addTagToParent(tagDivContainer, tagDivRow)
 const tagDivCol = Graphic.createDiv(Graphic.createHTMLObject(Classes.set(['col-2'])))
 Graphic.addTagToParent(tagDivRow, tagDivCol)
 const tagP1 = Graphic.createParagraph('Crea la tua app',Graphic.createHTMLObject(Classes.set(['myBold','text-center'])))
-const tagP2 = Graphic.createParagraph('test')
+const tagP2 = Graphic.createParagraph('Inserisci qui il tuo codice',Graphic.createHTMLObject(Classes.set(['text-align-center'])))
 Graphic.addTagsToParent(tagDivCol, [tagP1, tagP2])
 
 console.log(tagP1, tagDivContainer)

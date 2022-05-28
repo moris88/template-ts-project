@@ -1,38 +1,38 @@
-export namespace Graphic {
+export interface HTMLObject {
+    classes?: string
+    disabled?: boolean
+    //TODO inserire altri attributi
+}
+export interface ElementTag {
+    id: string
+    html: string
+}
+
+//TODO aggiungere altri tag
+export type tagType =
+| 'h1'
+| 'h2'
+| 'h3'
+| 'h4'
+| 'h5'
+| 'h6'
+| 'p'
+| 'span'
+| 'div'
+| 'table'
+| 'a'
+| 'select'
+| 'option'
+| 'tr'
+| 'input'
+export type TagHTML = {
+    type: tagType
+    parent?: TagHTML
+} & ElementTag
+
+namespace Graphic {
 
     let rootHTMLElement: HTMLElement | null = null
-
-    export interface HTMLObject {
-        classes?: string
-        disabled?: boolean
-        //TODO inserire altri attributi
-    }
-    export interface ElementTag {
-        id: string
-        html: string
-    }
-
-    //TODO aggiungere altri tag
-    export type tagType =
-    | 'h1'
-    | 'h2'
-    | 'h3'
-    | 'h4'
-    | 'h5'
-    | 'h6'
-    | 'p'
-    | 'span'
-    | 'div'
-    | 'table'
-    | 'a'
-    | 'select'
-    | 'option'
-    | 'tr'
-    | 'input'
-    export type TagHTML = {
-        type: tagType
-        parent?: TagHTML
-    } & ElementTag
 
     export function removeTag(tag: TagHTML) {
         const element = window.document.getElementById(tag.id)
@@ -307,3 +307,5 @@ const generateRandomString = (num: number) => {
 
     return result
 }
+
+export default Graphic

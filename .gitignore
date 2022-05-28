@@ -1,6 +1,5 @@
 /node_modules
 /.vscode
-package-lock.json
 /coverage
 /public/style.css
 /public/style.css.map
