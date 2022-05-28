@@ -1,7 +1,6 @@
 /* your code in typescript */
-
-import { Classes } from "./lib/Classes/classes";
-import Graphic from "./lib/Graphic/graphic";
+import Graphic from 'graphic-ts-project/graphic'
+import Classes from 'graphic-ts-project/classes'
 
 Graphic.setRoot('root')
 

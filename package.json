@@ -1,6 +1,6 @@
 {
     "name": "template-ts-project",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "scripts": {
         "build": "esbuild src/main.ts --bundle --minify --outfile=public/bundle.js && npx postcss ./src/style/style.scss --output ./public/style.css --env prodution --verbose",
         "dev": "esbuild src/main.ts --bundle --watch --outfile=public/bundle.js",
@@ -49,5 +49,8 @@
     },
     "browserslist": [
         "> 2%"
-    ]
+    ],
+    "dependencies": {
+        "graphic-ts-project": "^0.0.2"
+    }
 }
